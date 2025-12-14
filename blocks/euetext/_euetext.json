@@ -24,7 +24,7 @@
           "component": "richtext",
           "name": "text",
           "value": "",
-          "label": "Experience UE Text",
+          "label": "EUEText",
           "valueType": "string"
         }
       ]

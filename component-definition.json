@@ -128,6 +128,18 @@
           }
         },
         {
+          "title": "Experience AEM Text",
+          "id": "eaemtext",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/text/v1/text",
+                "template": {}
+              }
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "plugins": {

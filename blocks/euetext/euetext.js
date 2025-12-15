@@ -1,8 +1,4 @@
 export default async function decorate(block) {
-    if (window.location.hostname.startsWith('author-')) {
-        return;
-    }
-    
     const links = block.querySelectorAll('a');
     
     links.forEach(link => {

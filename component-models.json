@@ -37,6 +37,12 @@
         "name": "imageAlt",
         "label": "Alt Text"
       }
+    ],
+    "copyMode": [
+      {
+        "mimeType": "image/*",
+        "value": "reference"
+      }
     ]
   },
   {

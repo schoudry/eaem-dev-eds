@@ -21,20 +21,20 @@
           "component": "reference",
           "name": "image",
           "label": "Image",
-          "multi": false
+          "multi": false,
+          "copyMode": [ 
+            { 
+                "mimeType": "image/*", 
+                "value": "reference" 
+            } 
+          ] 
         },
         {
           "component": "text",
           "name": "imageAlt",
           "label": "Alt Text"
         }
-      ],
-      "copyMode": [ 
-          { 
-              "mimeType": "image/*", 
-              "value": "reference" 
-          } 
-      ] 
+      ]   
     }
   ]
 }

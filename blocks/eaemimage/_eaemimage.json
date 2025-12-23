@@ -2,14 +2,14 @@
   "definitions": [
     {
       "title": "Experience AEM Image",
-      "id": "eaem-image",
+      "id": "eaemimage",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/image/v1/image",
             "template": {
                 "name": "Experience AEM Image",
-                "model": "eaem-image"
+                "model": "eaemimage"
               }
           }
         }
@@ -18,7 +18,7 @@
   ],
   "models": [
     {
-      "id": "eaem-image",
+      "id": "eaemimage",
       "fields": [
         {
           "component": "custom-asset-namespace:custom-asset",

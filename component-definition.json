@@ -128,6 +128,21 @@
           }
         },
         {
+          "title": "Experience AEM Image",
+          "id": "eaemimage",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/image/v1/image",
+                "template": {
+                  "name": "Experience AEM Image",
+                  "model": "eaemimage"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "EUEText",
           "id": "euetext",
           "plugins": {

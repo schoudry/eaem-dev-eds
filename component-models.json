@@ -30,13 +30,7 @@
         "component": "reference",
         "name": "image",
         "label": "Image",
-        "multi": false,
-        "copyMode": [
-          {
-            "mimeType": "image/*",
-            "value": "reference"
-          }
-        ]
+        "multi": false
       },
       {
         "component": "text",

@@ -140,6 +140,8 @@ export function decorateMain(main) {
   // decorate external images with implicit external image marker
   decorateExternalImages(main);
 
+  decorateExternalImages(main, '//External Image//');
+
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);

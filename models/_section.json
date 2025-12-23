@@ -51,7 +51,8 @@
         "cards",
         "columns",
         "fragment",
-        "uetext"
+        "uetext",
+        "eaem-image"
       ]
     }
   ]

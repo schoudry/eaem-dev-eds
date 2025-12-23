@@ -1,0 +1,38 @@
+{
+  "definitions": [
+    {
+      "title": "Experience AEM Image",
+      "id": "eaem-image",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/image/v1/image",
+            "template": {
+                "name": "Experience AEM Image",
+                "model": "eaem-image"
+              }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "eaem-image",
+      "fields": [
+        {
+          "component": "custom-asset-namespace:custom-asset",
+          "name": "image",
+          "label": "Image",
+          "configUrl": "/content/dam/eds-configs/asset-selector.json",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "imageAlt",
+          "label": "Alt Text"
+        }
+      ]   
+    }
+  ]
+}

@@ -180,23 +180,6 @@
     ]
   },
   {
-    "id": "eaem-dynamic-select",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "eaemText",
-        "label": "Text"
-      },
-      {
-        "component": "eaem:dynamic-select-field",
-        "name": "eaemDynamicSelect",
-        "label": "Experience AEM Dynamic Select",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "eaemimage",
     "fields": [
       {
@@ -222,6 +205,23 @@
         "name": "text",
         "value": "",
         "label": "EUEText",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "eaem-dynamic-select",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "eaemText",
+        "label": "Text"
+      },
+      {
+        "component": "eaem:dynamic-select-field",
+        "name": "eaemDynamicSelect",
+        "label": "Experience AEM Dynamic Select",
         "valueType": "string"
       }
     ]

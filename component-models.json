@@ -180,6 +180,17 @@
     ]
   },
   {
+    "id": "eaem-dynamic-select",
+    "fields": [
+      {
+        "component": "eaem:dynamic-select-field",
+        "name": "eaem-dynamic-select",
+        "label": "Experience AEM Dynamic Select",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "eaemimage",
     "fields": [
       {

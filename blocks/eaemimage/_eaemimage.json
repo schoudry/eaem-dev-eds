@@ -21,16 +21,11 @@
       "id": "eaemimage",
       "fields": [
         {
-          "component": "custom-asset-namespace:custom-asset",
-          "name": "image",
-          "label": "Image",
-          "configUrl": "/content/dam/eds-configs/asset-selector.json",
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Rich Text",
           "valueType": "string"
-        },
-        {
-          "component": "text",
-          "name": "imageAlt",
-          "label": "Alt Text"
         },
         {
           "component": "eaem-custom-asset-namespace:custom-asset",

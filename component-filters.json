@@ -17,7 +17,8 @@
       "columns",
       "fragment",
       "uetext",
-      "eaemimage"
+      "eaemimage",
+      "eaem-dynamic-select"
     ]
   },
   {

@@ -135,7 +135,7 @@
               "page": {
                 "resourceType": "core/franklin/components/image/v1/image",
                 "template": {
-                  "name": "Experience AEM Image",
+                  "name": "eaemimage",
                   "model": "eaemimage"
                 }
               }

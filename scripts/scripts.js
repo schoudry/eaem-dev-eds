@@ -135,10 +135,7 @@ function decorateExternalImages(ele, deliveryMarker) {
 }
 
 function isInUniversalEditor() {
-  const isInIframe = window.self !== window.top;
-  console.log('Is in iframe----:', isInIframe);
-  console.log('window.self----:', window.self);
-  console.log('window.top----:', window.top);
+  return window.self !== window.top;
 }
 
 /**

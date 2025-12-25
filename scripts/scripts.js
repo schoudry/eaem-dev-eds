@@ -89,9 +89,12 @@ function isExternalImage(element, externalImageMarker) {
   // if the element is not an anchor, it's not an external image
   if (element.tagName !== 'A') return false;
 
-  // if the element is an anchor with the external image marker as text content,
-  // it's an external image
-  if (element.textContent.trim() === externalImageMarker) {
+  if(!externalImageMarker) return false;
+
+  // if the element is an anchor with the external image marker pattern as text content,
+  // it's an external image (matches //External Image <anything>//)
+  const textContent = element.textContent.trim();
+  if (externalImageMarker.test(textContent)) {
     return true;
   }
 
@@ -140,7 +143,7 @@ export function decorateMain(main) {
   // decorate external images with implicit external image marker
   decorateExternalImages(main);
 
-  decorateExternalImages(main, '//External Image//');
+  decorateExternalImages(main, /^\/\/External Image.*\/\/$/);
 
   // hopefully forward compatible button decoration
   decorateButtons(main);

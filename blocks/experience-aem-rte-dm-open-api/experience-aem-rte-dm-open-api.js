@@ -1,6 +1,4 @@
-export default async function decorate(block) {
-  console.log('--parent---', window.parent?.location.href);
-  
+export default async function decorate(block) { 
   // Remove button-container class from p elements
   const buttonContainers = block.querySelectorAll('p.button-container');
   buttonContainers.forEach(p => {

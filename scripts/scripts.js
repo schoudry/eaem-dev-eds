@@ -134,16 +134,24 @@ function decorateExternalImages(ele, deliveryMarker) {
   });
 }
 
+function isInUniversalEditor() {
+  const isInIframe = window.self !== window.top;
+  console.log('Is in iframe----:', isInIframe);
+  console.log('window.self----:', window.self);
+  console.log('window.top----:', window.top);
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  // decorate external images with implicit external image marker
-  decorateExternalImages(main);
-
-  decorateExternalImages(main, /^\/\/External Image.*\/\/$/);
+  if(!isInUniversalEditor()){
+    // decorate external images with implicit external image marker
+    decorateExternalImages(main);
+    decorateExternalImages(main, /^\/\/External Image.*\/\/$/);
+  }
 
   // hopefully forward compatible button decoration
   decorateButtons(main);

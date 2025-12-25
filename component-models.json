@@ -227,6 +227,23 @@
     ]
   },
   {
+    "id": "eaem-rte-dm-open-api",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "eaemRichText",
+        "label": "Rich Text"
+      },
+      {
+        "component": "eaem:rte-dm-open-api-images",
+        "name": "eaemDmOpenApiImages",
+        "label": "Select DM Open API Images",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {

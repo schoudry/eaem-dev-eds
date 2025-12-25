@@ -1,5 +1,5 @@
 export default async function decorate(block) {
-  console.log('experience-aem-rte-dm-open-api-----', block);
+  console.log('-----', window.location.href);
   
   // Remove button-container class from p elements
   const buttonContainers = block.querySelectorAll('p.button-container');

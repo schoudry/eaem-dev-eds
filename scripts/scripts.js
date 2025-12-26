@@ -162,9 +162,8 @@ export function decorateMain(main) {
     // decorate external images with implicit external image marker
     decorateExternalImages(main);
     decorateExternalImages(main, /^\/\/External Image.*\/\/$/);
+    decorateRTEHighlights(main);
   }
-
-  decorateRTEHighlights(main);
 
   // hopefully forward compatible button decoration
   decorateButtons(main);

@@ -138,6 +138,20 @@ function isInUniversalEditor() {
   return window.self !== window.top;
 }
 
+function decorateRTEHighlights(main) {
+  // Pattern: //[classname] TEXT TO BE STYLED //
+  const pattern = /\/\/\[([^\]]+)\]\s*(.*?)\s*\/\//g;
+  
+  const paragraphs = main.querySelectorAll('p');
+  
+  paragraphs.forEach((p) => {
+    if (pattern.test(p.textContent)) {
+      p.innerHTML = p.innerHTML.replace(pattern, '<span class="$1">$2</span>');
+    }
+    pattern.lastIndex = 0; // Reset regex for next test
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -149,6 +163,8 @@ export function decorateMain(main) {
     decorateExternalImages(main);
     decorateExternalImages(main, /^\/\/External Image.*\/\/$/);
   }
+
+  decorateRTEHighlights(main);
 
   // hopefully forward compatible button decoration
   decorateButtons(main);

@@ -85,60 +85,11 @@ function appendQueryParams(url, params) {
   return url.toString();
 }
 
-function isExternalImage(element, externalImageMarker) {
-  // if the element is not an anchor, it's not an external image
-  if (element.tagName !== 'A') return false;
-
-  if(!externalImageMarker) return false;
-
-  // if the element is an anchor with the external image marker pattern as text content,
-  // it's an external image (matches //External Image <anything>//)
-  const textContent = element.textContent.trim();
-  if (externalImageMarker.test(textContent)) {
-    return true;
-  }
-
-  // if the element is an anchor with the href as text content and the href has
-  // an image extension, it's an external image
-  if (element.textContent.trim() === element.getAttribute('href')) {
-    const ext = getUrlExtension(element.getAttribute('href'));
-    return ext && ['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(ext.toLowerCase());
-  }
-}
-
-function decorateExternalImages(ele, deliveryMarker) {
-  const extImages = ele.querySelectorAll('a');
-  extImages.forEach((extImage) => {
-    if (isExternalImage(extImage, deliveryMarker)) {
-      const extImageSrc = extImage.getAttribute('href');
-      const extPicture = createOptimizedPicture(extImageSrc);
-
-      /* copy query params from link to img */
-      const extImageUrl = new URL(extImageSrc);
-      const { searchParams } = extImageUrl;
-      extPicture.querySelectorAll('source, img').forEach((child) => {
-        if (child.tagName === 'SOURCE') {
-          const srcset = child.getAttribute('srcset');
-          if (srcset) {
-            child.setAttribute('srcset', appendQueryParams(new URL(srcset, extImageSrc), searchParams));
-          }
-        } else if (child.tagName === 'IMG') {
-          const src = child.getAttribute('src');
-          if (src) {
-            child.setAttribute('src', appendQueryParams(new URL(src, extImageSrc), searchParams));
-          }
-        }
-      });
-      extImage.parentNode.replaceChild(extPicture, extImage);
-    }
-  });
-}
-
 function isInUniversalEditor() {
   return window.self !== window.top;
 }
 
-function decorateRTEHighlights(main) {
+function decorateRTEStyles(main) {
   // Pattern: //[classname] TEXT TO BE STYLED //
   const pattern = /\/\/\[([^\]]+)\]\s*(.*?)\s*\/\//g;
   
@@ -152,17 +103,27 @@ function decorateRTEHighlights(main) {
   });
 }
 
+function decorateRTEStylesForUE(main) {
+  const channel = new BroadcastChannel('eaem-events-channel');
+  
+  channel.onmessage = (event) => {
+    if (event.data.type === 'SHOW_STYLED') {
+      console.log('Received SHOW_STYLED event, calling decorateRTEStyles-------');
+      decorateRTEStyles(main);
+    }
+  };
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  if(!isInUniversalEditor()){
-    // decorate external images with implicit external image marker
-    decorateExternalImages(main);
-    decorateExternalImages(main, /^\/\/External Image.*\/\/$/);
-    decorateRTEHighlights(main);
+  if(isInUniversalEditor()){
+    decorateRTEStylesForUE(main);
+  }else{
+    decorateRTEStyles(main);
   }
 
   // hopefully forward compatible button decoration

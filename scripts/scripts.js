@@ -104,14 +104,17 @@ function decorateRTEStyles(main) {
 }
 
 function decorateRTEStylesForUE(main) {
-  const channel = new BroadcastChannel('eaem-events-channel');
-  
-  channel.onmessage = (event) => {
+  window.addEventListener('message', (event) => {
     if (event.data.type === 'SHOW_STYLED') {
       console.log('Received SHOW_STYLED event, calling decorateRTEStyles-------');
       decorateRTEStyles(main);
     }
-  };
+    
+    if (event.data.type === 'SHOW_MARKED') {
+      console.log('Received SHOW_MARKED event');
+      // Logic for showing marked content
+    }
+  });
 }
 
 /**

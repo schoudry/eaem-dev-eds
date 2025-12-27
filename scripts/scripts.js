@@ -104,17 +104,14 @@ function decorateRTEStyles(main) {
 }
 
 function decorateRTEStylesForUE(main) {
-  window.addEventListener('message', (event) => {
-    if (event.data.type === 'SHOW_STYLED') {
-      console.log('Received SHOW_STYLED event, calling decorateRTEStyles-------');
-      decorateRTEStyles(main);
-    }
-    
-    if (event.data.type === 'SHOW_MARKED') {
-      console.log('Received SHOW_MARKED event');
-      // Logic for showing marked content
-    }
-  });
+  // Check for query parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const showStyled = urlParams.get('eaemRTEShowStyled');
+  
+  if (showStyled === 'true') {
+    console.log('Query param eaemRTEShowStyled=true detected, calling decorateRTEStyles');
+    decorateRTEStyles(main);
+  }
 }
 
 /**

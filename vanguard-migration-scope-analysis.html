@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Migration Scope Analysis - Vanguard Investor Website</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      font-size: 11pt;
+    }
+
+    h1 {
+      color: #96151D;
+      border-bottom: 3px solid #96151D;
+      padding-bottom: 10px;
+      font-size: 28pt;
+      margin-top: 0;
+    }
+
+    h2 {
+      color: #96151D;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      margin-top: 30px;
+      font-size: 16pt;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      color: #333;
+      margin-top: 20px;
+      font-size: 13pt;
+      page-break-after: avoid;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 10pt;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    ul, ol {
+      margin: 10px 0;
+      padding-left: 25px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    strong {
+      color: #222;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 25px 0;
+    }
+
+    .header-meta {
+      color: #666;
+      font-size: 10pt;
+      margin-bottom: 30px;
+    }
+
+    .header-meta p {
+      margin: 5px 0;
+    }
+
+    .summary-box {
+      background: #f8f8f8;
+      border-left: 4px solid #96151D;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+
+    .template-section {
+      page-break-inside: avoid;
+      margin-bottom: 20px;
+    }
+
+    .phase-section {
+      background: #fafafa;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      page-break-inside: avoid;
+    }
+
+    .risk-high { color: #c0392b; font-weight: 600; }
+    .risk-medium { color: #e67e22; font-weight: 600; }
+    .risk-low { color: #27ae60; font-weight: 600; }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 10pt;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-size: 9pt;
+      color: #666;
+      font-style: italic;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+      }
+      h2 {
+        page-break-after: avoid;
+      }
+      .template-section, .phase-section, table {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Migration Scope Analysis</h1>
+  <h2 style="border: none; color: #666; font-size: 18pt; margin-top: -10px;">Vanguard Investor Website</h2>
+
+  <div class="header-meta">
+    <p><strong>Prepared for:</strong> Adobe Edge Delivery Services Migration</p>
+    <p><strong>Site URL:</strong> https://investor.vanguard.com/</p>
+    <p><strong>Date:</strong> January 29, 2026</p>
+  </div>
+
+  <hr>
+
+  <h2>Executive Summary</h2>
+  <p>This document provides a comprehensive analysis of the Vanguard Investor website for migration to Adobe Edge Delivery Services. The site is a large-scale financial services platform with approximately 200+ pages across 8 distinct page templates.</p>
+
+  <div class="summary-box">
+    <strong>Key Findings:</strong>
+    <ul>
+      <li>8 page templates identified requiring custom development</li>
+      <li>12-15 custom blocks needed</li>
+      <li>Complex navigation (mega menu) requires special attention</li>
+      <li>Extensive legal/regulatory content throughout</li>
+    </ul>
+  </div>
+
+  <h2>Site Overview</h2>
+  <table>
+    <tr><th>Attribute</th><th>Details</th></tr>
+    <tr><td><strong>Industry</strong></td><td>Financial Services / Investment Management</td></tr>
+    <tr><td><strong>Estimated Page Count</strong></td><td>200+ pages</td></tr>
+    <tr><td><strong>Primary Audience</strong></td><td>Retail investors</td></tr>
+    <tr><td><strong>Content Types</strong></td><td>Marketing pages, educational articles, product information, tools</td></tr>
+  </table>
+
+  <h2>Page Templates Identified</h2>
+
+  <div class="template-section">
+    <h3>1. Homepage Template</h3>
+    <p><strong>URL:</strong> <code>/</code> &nbsp; <strong>Complexity:</strong> High &nbsp; <strong>Priority:</strong> P1</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Hero carousel with rotating promotions</li>
+      <li>Goal-based navigation cards</li>
+      <li>Investment products grid</li>
+      <li>Video testimonial section</li>
+      <li>Statistics display (50M+ investors, 84% outperformance)</li>
+      <li>Awards and recognition</li>
+      <li>Newsletter signup</li>
+    </ul>
+  </div>
+
+  <div class="template-section">
+    <h3>2. Product Hub Template</h3>
+    <p><strong>URL:</strong> <code>/investment-products</code> &nbsp; <strong>Complexity:</strong> High &nbsp; <strong>Priority:</strong> P1</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Hero with lifestyle imagery</li>
+      <li>Expandable product category accordions</li>
+      <li>Investment search widget</li>
+      <li>Interactive comparison tool</li>
+      <li>Customer testimonial quote</li>
+      <li>Account preview carousel</li>
+      <li>FAQ accordion section</li>
+      <li>Email newsletter signup</li>
+    </ul>
+  </div>
+
+  <div class="template-section">
+    <h3>3. Service Comparison Template</h3>
+    <p><strong>URL:</strong> <code>/advice</code> &nbsp; <strong>Complexity:</strong> High &nbsp; <strong>Priority:</strong> P2</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Hero with background image overlay</li>
+      <li>Expandable service tier accordions</li>
+      <li>Feature comparison table with checkmarks</li>
+      <li>Quiz/recommendation promo</li>
+      <li>FAQ section</li>
+      <li>Resource cards grid</li>
+      <li>Legal disclaimers</li>
+    </ul>
+  </div>
+
+  <div class="template-section">
+    <h3>4. Category Hub Template</h3>
+    <p><strong>URL:</strong> <code>/accounts-plans</code> &nbsp; <strong>Complexity:</strong> Medium-High &nbsp; <strong>Priority:</strong> P2</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Hero with Quick-Start Tool CTA</li>
+      <li>Filter tab navigation (Trading, Retirement, Savings, etc.)</li>
+      <li>Fee transparency callout</li>
+      <li>Two-column comparison (DIY vs Advisor)</li>
+      <li>Awards badge</li>
+      <li>Resource cards</li>
+      <li>FAQ accordion</li>
+      <li>Newsletter signup</li>
+    </ul>
+  </div>
+
+  <div class="template-section">
+    <h3>5. Content Hub Template</h3>
+    <p><strong>URL:</strong> <code>/investor-resources-education</code> &nbsp; <strong>Complexity:</strong> High &nbsp; <strong>Priority:</strong> P2</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Minimal hero with text overlay</li>
+      <li>Featured article cards with category tags</li>
+      <li>Topic-based carousel/slider</li>
+      <li>Tools and calculators section</li>
+      <li>Mobile app promotion with QR code</li>
+      <li>Topic filter dropdown with article listings</li>
+      <li>Newsletter signup</li>
+    </ul>
+  </div>
+
+  <div class="template-section">
+    <h3>6. Brand/About Template</h3>
+    <p><strong>URL:</strong> <code>/about-us</code> &nbsp; <strong>Complexity:</strong> Medium &nbsp; <strong>Priority:</strong> P3</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Distinctive hero (group photo forming "V")</li>
+      <li>Historical timeline promo</li>
+      <li>Awards section with 6 award cards</li>
+      <li>Impact statistics (50M+ clients, 458 funds, etc.)</li>
+      <li>Three-column resource cards</li>
+      <li>Extensive footnotes</li>
+    </ul>
+  </div>
+
+  <div class="template-section">
+    <h3>7. Article Template</h3>
+    <p><strong>URL:</strong> <code>/investor-resources-education/article/*</code> &nbsp; <strong>Complexity:</strong> Medium &nbsp; <strong>Priority:</strong> P1</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Article metadata (category, read time, date)</li>
+      <li>Social/save/print actions</li>
+      <li>Featured image</li>
+      <li>Rich text content with inline links</li>
+      <li>Numbered list items with icons</li>
+      <li>CTA callout boxes</li>
+      <li>Related articles grid</li>
+      <li>Footnotes and disclaimers</li>
+    </ul>
+  </div>
+
+  <div class="template-section">
+    <h3>8. Product Detail Template</h3>
+    <p><strong>URL:</strong> <code>/investment-products/etfs</code>, <code>/investment-products/mutual-funds</code> &nbsp; <strong>Complexity:</strong> Medium &nbsp; <strong>Priority:</strong> P2</p>
+    <p><strong>Key Sections:</strong></p>
+    <ul>
+      <li>Product-specific hero</li>
+      <li>Feature highlights</li>
+      <li>Comparison content</li>
+      <li>Related products</li>
+      <li>FAQ section</li>
+    </ul>
+  </div>
+
+  <h2>Block Inventory</h2>
+  <h3>Core Blocks Required</h3>
+  <table>
+    <tr><th>Block Name</th><th>Description</th><th>Estimated Usage</th></tr>
+    <tr><td><strong>Hero</strong></td><td>Image + headline + CTA overlay</td><td>All landing pages</td></tr>
+    <tr><td><strong>Hero Carousel</strong></td><td>Rotating hero with pagination</td><td>Homepage</td></tr>
+    <tr><td><strong>Cards</strong></td><td>2-3 column grid with image/icon + text + CTA</td><td>10+ pages</td></tr>
+    <tr><td><strong>FAQ Accordion</strong></td><td>Expandable Q&A sections</td><td>5+ pages</td></tr>
+    <tr><td><strong>Carousel/Slider</strong></td><td>Rotating content panels with navigation</td><td>Homepage, hubs</td></tr>
+    <tr><td><strong>Comparison Table</strong></td><td>Feature matrix with checkmarks/icons</td><td>Advice, products</td></tr>
+    <tr><td><strong>Statistics</strong></td><td>Large numbers with descriptions</td><td>Homepage, about</td></tr>
+    <tr><td><strong>Newsletter Signup</strong></td><td>Email capture form with image</td><td>Multiple pages</td></tr>
+    <tr><td><strong>CTA Banner</strong></td><td>Centered call-to-action section</td><td>All pages</td></tr>
+    <tr><td><strong>Tabs</strong></td><td>Category filter navigation</td><td>Hub pages</td></tr>
+    <tr><td><strong>Award Badge</strong></td><td>Recognition display with external link</td><td>Multiple pages</td></tr>
+    <tr><td><strong>Numbered List</strong></td><td>Circled number icon + heading + content</td><td>Article pages</td></tr>
+    <tr><td><strong>Related Articles</strong></td><td>Article card grid with category tags</td><td>Article pages</td></tr>
+    <tr><td><strong>Quote/Testimonial</strong></td><td>Customer quote with attribution</td><td>Product pages</td></tr>
+    <tr><td><strong>Video Modal</strong></td><td>Video player in modal overlay</td><td>Homepage</td></tr>
+  </table>
+  <p><strong>Total Custom Blocks:</strong> 12-15</p>
+
+  <h2>Design System Analysis</h2>
+
+  <h3>Colors</h3>
+  <table>
+    <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+    <tr><td>Primary (Maroon)</td><td style="color: #96151D; font-weight: bold;">#96151D</td><td>CTAs, accents, headers</td></tr>
+    <tr><td>Black</td><td>#000000</td><td>Body text, headings</td></tr>
+    <tr><td>White</td><td>#FFFFFF</td><td>Backgrounds, text on dark</td></tr>
+    <tr><td>Gray Light</td><td>#F5F5F5</td><td>Section backgrounds</td></tr>
+    <tr><td>Gray Medium</td><td>#666666</td><td>Secondary text</td></tr>
+  </table>
+
+  <h3>Typography</h3>
+  <ul>
+    <li><strong>Headings:</strong> Custom brand font (likely proprietary)</li>
+    <li><strong>Body:</strong> Sans-serif system font stack</li>
+    <li><strong>Font Sizes:</strong> 14px-48px range</li>
+  </ul>
+
+  <h3>Spacing</h3>
+  <ul>
+    <li>Grid system based on 8px units</li>
+    <li>Consistent section padding</li>
+    <li>Card gap spacing</li>
+  </ul>
+
+  <h2>Technical Considerations</h2>
+
+  <h3>Challenges</h3>
+  <ol>
+    <li><strong>Complex Navigation</strong> - Mega menu with multiple columns, requires custom JavaScript decoration, mobile responsive hamburger menu</li>
+    <li><strong>Interactive Components</strong> - Carousels with auto-play and pause, accordion expand/collapse animations, tab panel switching, modal dialogs</li>
+    <li><strong>Comparison Tables</strong> - Complex table structure, icon-based indicators, responsive behavior needed</li>
+    <li><strong>Search Functionality</strong> - Investment ticker/name search, may require external API integration</li>
+    <li><strong>Legal/Compliance Content</strong> - Extensive footnotes with superscript references, regulatory disclaimers, PDF document links</li>
+    <li><strong>Video Content</strong> - Embedded video player, transcript modal</li>
+  </ol>
+
+  <h3>Dependencies</h3>
+  <ul>
+    <li>Custom web fonts (licensing consideration)</li>
+    <li>External APIs (search, authentication)</li>
+    <li>PDF document hosting</li>
+    <li>Video hosting platform</li>
+  </ul>
+
+  <h2>Migration Recommendations</h2>
+
+  <div class="phase-section">
+    <h3>Phase 1: Foundation</h3>
+    <p><strong>Focus:</strong> Establish core infrastructure</p>
+    <table>
+      <tr><th>Task</th><th>Description</th></tr>
+      <tr><td>Design System</td><td>Extract colors, fonts, spacing tokens</td></tr>
+      <tr><td>Global Styles</td><td>Create styles.css with CSS custom properties</td></tr>
+      <tr><td>Navigation</td><td>Build mega menu structure</td></tr>
+      <tr><td>Homepage</td><td>Migrate primary landing page</td></tr>
+      <tr><td>Article Template</td><td>Migrate 2-3 sample articles</td></tr>
+    </table>
+    <p><strong>Blocks to Build:</strong> Hero, Hero Carousel, Cards, Statistics, CTA Banner, Newsletter Signup, Numbered List</p>
+  </div>
+
+  <div class="phase-section">
+    <h3>Phase 2: Hub Pages</h3>
+    <p><strong>Focus:</strong> Category and product pages</p>
+    <table>
+      <tr><th>Task</th><th>Description</th></tr>
+      <tr><td>Investment Products</td><td>Product hub with accordions</td></tr>
+      <tr><td>Accounts & Plans</td><td>Category hub with tabs</td></tr>
+      <tr><td>About Us</td><td>Brand storytelling page</td></tr>
+    </table>
+    <p><strong>Blocks to Build:</strong> FAQ Accordion, Tabs, Award Badge, Quote/Testimonial</p>
+  </div>
+
+  <div class="phase-section">
+    <h3>Phase 3: Advanced Features</h3>
+    <p><strong>Focus:</strong> Complex interactive pages</p>
+    <table>
+      <tr><th>Task</th><th>Description</th></tr>
+      <tr><td>Advice Page</td><td>Service comparison with tables</td></tr>
+      <tr><td>Resources Hub</td><td>Content aggregation with filters</td></tr>
+      <tr><td>Product Details</td><td>Individual product pages</td></tr>
+    </table>
+    <p><strong>Blocks to Build:</strong> Comparison Table, Carousel/Slider, Related Articles, Video Modal</p>
+  </div>
+
+  <h2>Effort Estimates</h2>
+  <table>
+    <tr><th>Category</th><th>Items</th><th>Complexity</th></tr>
+    <tr><td>Page Templates</td><td>8</td><td>High</td></tr>
+    <tr><td>Custom Blocks</td><td>12-15</td><td>High</td></tr>
+    <tr><td>Design System</td><td>1 complete set</td><td>Medium</td></tr>
+    <tr><td>Navigation</td><td>1 mega menu</td><td>High</td></tr>
+    <tr><td>Total Unique Pages</td><td>200+</td><td>-</td></tr>
+  </table>
+
+  <h3>Risk Factors</h3>
+  <ul>
+    <li><span class="risk-high">High:</span> Complex navigation structure</li>
+    <li><span class="risk-medium">Medium:</span> Interactive component JavaScript</li>
+    <li><span class="risk-medium">Medium:</span> Legal content accuracy</li>
+    <li><span class="risk-low">Low:</span> Content volume (manageable with templates)</li>
+  </ul>
+
+  <h2>Recommended Starting Point</h2>
+  <ol>
+    <li><strong>Design System Extraction</strong> - Extract colors, typography, and spacing from existing site</li>
+    <li><strong>Homepage Migration</strong> - Establishes majority of blocks needed</li>
+    <li><strong>Article Template</strong> - High volume, validates content workflow</li>
+    <li><strong>Navigation Setup</strong> - Critical dependency for all pages</li>
+  </ol>
+
+  <div class="footer">
+    <p>Analysis prepared using automated site exploration and content inventory tools.</p>
+    <p>© 2026 Adobe Edge Delivery Services Migration Analysis</p>
+  </div>
+</body>
+</html>

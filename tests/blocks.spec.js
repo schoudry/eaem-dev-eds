@@ -1,8 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-/**
- * Tests for Edge Delivery Services blocks
- */
 test.describe('Blocks', () => {
   test.describe('Hero Block', () => {
     test('should have proper styling', async ({ page }) => {

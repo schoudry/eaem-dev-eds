@@ -19,15 +19,7 @@
   "models": [
     {
       "id": "hero",
-      "fields": [
-        {
-          "component": "eaem:multi-style-picker",
-          "name": "eaemBlockStyles",
-          "value": "",
-          "label": "Block Styles",
-          "valueType": "string",
-          "sourceAEMNodeName" : "block-styles"
-        },
+      "fields": [     
         {
           "component": "reference",
           "valueType": "string",
@@ -48,6 +40,14 @@
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },
+        {
+          "component": "eaem:multi-style-picker",
+          "name": "eaemBlockStyles",
+          "value": "",
+          "label": "Block Styles",
+          "valueType": "string",
+          "sourceAEMNodeName" : "block-styles"
         },
         {
           "component": "eaem:multi-style-picker",

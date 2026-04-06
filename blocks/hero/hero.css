@@ -45,7 +45,7 @@
   border-style: solid;
 }
 
-.eaem-text-color-primary-blue {
+.eaem-text-color-primary-blue > h1{
   color: #0066cc;
 }
 

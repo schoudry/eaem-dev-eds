@@ -257,6 +257,23 @@
     "id": "hero",
     "fields": [
       {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Profile",
+            "value": "profile"
+          },
+          {
+            "name": "Landing",
+            "value": "landing"
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
@@ -276,22 +293,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      },
-      {
-        "component": "eaem:multi-style-picker",
-        "name": "eaemBlockStyles",
-        "value": "",
-        "label": "Block Styles",
-        "valueType": "string",
-        "sourceAEMNodeName": "block-styles"
-      },
-      {
-        "component": "eaem:multi-style-picker",
-        "name": "eaemTextStyles",
-        "value": "",
-        "label": "Text Styles",
-        "valueType": "string",
-        "sourceAEMNodeName": "text-styles"
       }
     ]
   }

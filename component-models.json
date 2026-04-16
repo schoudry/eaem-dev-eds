@@ -205,7 +205,22 @@
         "name": "text",
         "value": "",
         "label": "EUEText Up Two",
-        "valueType": "string"
+        "valueType": "string",
+        "rte": {
+          "toolbar": {
+            "format": [
+              "bold",
+              "italic"
+            ]
+          },
+          "actions": {
+            "bold": {
+              "tag": "strong",
+              "shortcut": "Mod-B",
+              "label": "Sreek Bold"
+            }
+          }
+        }
       }
     ]
   },

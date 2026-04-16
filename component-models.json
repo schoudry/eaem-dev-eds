@@ -204,7 +204,7 @@
         "component": "richtext",
         "name": "text",
         "value": "",
-        "label": "EUEText",
+        "label": "EUEText Redefined",
         "valueType": "string",
         "rte": {
           "toolbar": {

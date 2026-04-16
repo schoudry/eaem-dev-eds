@@ -204,7 +204,7 @@
         "component": "richtext",
         "name": "text",
         "value": "",
-        "label": "EUEText Up Two",
+        "label": "EUEText",
         "valueType": "string",
         "rte": {
           "toolbar": {

@@ -180,24 +180,6 @@
     ]
   },
   {
-    "id": "eaemimage",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Rich Text",
-        "valueType": "string"
-      },
-      {
-        "component": "eaem-custom-asset-namespace:custom-asset",
-        "name": "eaemImage",
-        "label": "Experience AEMImage",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "euetext",
     "fields": [
       {
@@ -221,40 +203,6 @@
             }
           }
         }
-      }
-    ]
-  },
-  {
-    "id": "eaem-dynamic-select",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "eaemText",
-        "label": "Text"
-      },
-      {
-        "component": "eaem:dynamic-select-field",
-        "name": "eaemDynamicSelect",
-        "label": "Experience AEM Dynamic Select",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "eaem-rte-dm-open-api",
-    "fields": [
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "eaemRichText",
-        "label": "Rich Text"
-      },
-      {
-        "component": "eaem:rte-dm-open-api-images",
-        "name": "eaemDmOpenApiImages",
-        "label": "Select DM Open API Images",
-        "valueType": "string"
       }
     ]
   },

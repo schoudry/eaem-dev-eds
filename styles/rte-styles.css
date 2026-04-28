@@ -138,15 +138,6 @@
   text-shadow: 0 1px 0 rgb(7 29 73 / 12%);
 }
 
-/* 19 — Gradient text (decorative headline fragment) — rte- only */
-.rte-gradient {
-  background: linear-gradient(90deg, #0066f5 0%, #8a2ecc 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: 600;
-}
-
 /* 20 — Inverse on dark strip (use inside dark sections) — txt- only */
 .txt-on-dark {
   display: inline-block;

@@ -7,17 +7,12 @@ import {
   decorateBlocks,
   decorateTemplateAndTheme,
   waitForFirstImage,
-  createOptimizedPicture,
   loadSection,
   loadSections,
   loadCSS,
 } from './aem.js';
 
-/**
- * Moves all the attributes from a given elmenet to another given element.
- * @param {Element} from the element to copy attributes from
- * @param {Element} to the element to copy attributes to
- */
+
 export function moveAttributes(from, to, attributes) {
   if (!attributes) {
     // eslint-disable-next-line no-param-reassign
@@ -83,34 +78,6 @@ function appendQueryParams(url, params) {
   });
   url.search = searchParams.toString();
   return url.toString();
-}
-
-function isInUniversalEditor() {
-  return window.self !== window.top;
-}
-
-function decorateRTEStyles(main) {
-  // Pattern: //[classname] TEXT TO BE STYLED //
-  const pattern = /\/\/\[([^\]]+)\]\s*(.*?)\s*\/\//g;
-  
-  const paragraphs = main.querySelectorAll('p');
-  
-  paragraphs.forEach((p) => {
-    if (pattern.test(p.textContent)) {
-      p.innerHTML = p.innerHTML.replace(pattern, '<span class="$1">$2</span>');
-    }
-    pattern.lastIndex = 0; // Reset regex for next test
-  });
-}
-
-function decorateRTEStylesForUE(main) {
-  // Check for query parameter
-  const urlParams = new URLSearchParams(window.location.search);
-  const showStyled = urlParams.get('eaemRTEShowStyled');
-  
-  if (showStyled === 'true') {
-    decorateRTEStyles(main);
-  }
 }
 
 /**

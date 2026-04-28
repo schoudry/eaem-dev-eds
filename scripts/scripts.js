@@ -12,7 +12,6 @@ import {
   loadCSS,
 } from './aem.js';
 
-
 export function moveAttributes(from, to, attributes) {
   if (!attributes) {
     // eslint-disable-next-line no-param-reassign
@@ -65,19 +64,6 @@ function buildAutoBlocks() {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
-}
-
-function getUrlExtension(url) {
-  return url.split(/[#?]/)[0].split('.').pop().trim();
-}
-
-function appendQueryParams(url, params) {
-  const { searchParams } = url;
-  params.forEach((value, key) => {
-    searchParams.set(key, value);
-  });
-  url.search = searchParams.toString();
-  return url.toString();
 }
 
 /**

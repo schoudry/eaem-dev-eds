@@ -4,23 +4,9 @@ function isInUniversalEditor() {
   return window.self !== window.top;
 }
 
-async function loadDelayedScripts() {
-  const main = document.querySelector("main");
-  loadCSS(`${window.hlx.codeBasePath}/styles/rte-styles.css`);
-
-  if (isInUniversalEditor()) {
-    const { registerUEExtensions } = await import("./ue-extensions.js");
-    registerUEExtensions();
-
-    decorateRTEStylesForUE(main);
-  } else {
-    decorateRTEStyles(main);
-  }
-}
-
 function decorateRTEStylesForUE(main) {
   const urlParams = new URLSearchParams(window.location.search);
-  const showStyled = urlParams.get("edsRTEShowStyled");
+  const showStyled = urlParams.get('edsRTEShowStyled');
 
   if (showStyled === "true") {
     decorateRTEStyles(main);
@@ -31,7 +17,7 @@ function decorateRTEStyles(main) {
   // Pattern: //[classname] TEXT TO BE STYLED //
   const pattern = /\/\/\[([^\]]+)\]\s*(.*?)\s*\/\//g;
 
-  const paragraphs = main.querySelectorAll("p");
+  const paragraphs = main.querySelectorAll('p');
 
   paragraphs.forEach((p) => {
     if (pattern.test(p.textContent)) {
@@ -40,5 +26,20 @@ function decorateRTEStyles(main) {
     pattern.lastIndex = 0; // Reset regex for next test
   });
 }
+
+async function loadDelayedScripts() {
+    const main = document.querySelector('main');
+    loadCSS(`${window.hlx.codeBasePath}/styles/rte-styles.css`);
+  
+    if (isInUniversalEditor()) {
+      const { registerUEExtensions } = await import('./ue-extensions.js');
+      registerUEExtensions();
+  
+      decorateRTEStylesForUE(main);
+    } else {
+      decorateRTEStyles(main);
+    }
+  }
+  
 
 loadDelayedScripts(); // add delayed functionality here

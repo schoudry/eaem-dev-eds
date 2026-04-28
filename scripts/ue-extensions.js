@@ -1,5 +1,5 @@
 export function registerUEExtensions() {
-  const SELECTION_MESSAGE_TYPE = "eds-user-text-selection";
+  const SELECTION_MESSAGE_TYPE = 'eds-user-text-selection';
   let selectionDebounce;
 
   const postSelectedTextToAIOExtensions = (text) => {
@@ -10,7 +10,9 @@ export function registerUEExtensions() {
       if (window.parent && window.parent !== window) {
         rootDocument = window.parent.document;
       }
-    } catch {}
+    } catch {
+      // Cross-origin parent frame — document not accessible
+    }
 
     const iframes = rootDocument.querySelectorAll('iframe[data-uix-guest="true"]');
 
@@ -21,17 +23,17 @@ export function registerUEExtensions() {
         return;
       }
 
-      let targetOrigin = "*";
+      let targetOrigin = '*';
 
       try {
-        if (frame.getAttribute("src")) {
+        if (frame.getAttribute('src')) {
           targetOrigin = new URL(
-            frame.getAttribute("src"),
+            frame.getAttribute('src'),
             rootDocument.baseURI || document.baseURI,
           ).origin;
         }
       } catch {
-        targetOrigin = "*";
+        targetOrigin = '*';
       }
 
       try {
@@ -42,10 +44,10 @@ export function registerUEExtensions() {
     });
   };
 
-  document.addEventListener("selectionchange", () => {
+  document.addEventListener('selectionchange', () => {
     clearTimeout(selectionDebounce);
     selectionDebounce = setTimeout(() => {
-      const text = window.getSelection()?.toString() ?? "";
+      const text = window.getSelection()?.toString() ?? '';
       if (text.trim()) {
         postSelectedTextToAIOExtensions(text);
       }

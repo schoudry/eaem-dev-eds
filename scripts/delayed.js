@@ -1,16 +1,7 @@
-import { loadCSS } from "./aem.js";
+import { loadCSS } from './aem.js';
 
 function isInUniversalEditor() {
   return window.self !== window.top;
-}
-
-function decorateRTEStylesForUE(main) {
-  const urlParams = new URLSearchParams(window.location.search);
-  const showStyled = urlParams.get('edsRTEShowStyled');
-
-  if (showStyled === "true") {
-    decorateRTEStyles(main);
-  }
 }
 
 function decorateRTEStyles(main) {
@@ -27,19 +18,27 @@ function decorateRTEStyles(main) {
   });
 }
 
-async function loadDelayedScripts() {
-    const main = document.querySelector('main');
-    loadCSS(`${window.hlx.codeBasePath}/styles/rte-styles.css`);
-  
-    if (isInUniversalEditor()) {
-      const { registerUEExtensions } = await import('./ue-extensions.js');
-      registerUEExtensions();
-  
-      decorateRTEStylesForUE(main);
-    } else {
-      decorateRTEStyles(main);
-    }
+function decorateRTEStylesForUE(main) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const showStyled = urlParams.get('edsRTEShowStyled');
+
+  if (showStyled === 'true') {
+    decorateRTEStyles(main);
   }
-  
+}
+
+async function loadDelayedScripts() {
+  const main = document.querySelector('main');
+  loadCSS(`${window.hlx.codeBasePath}/styles/rte-styles.css`);
+
+  if (isInUniversalEditor()) {
+    const { registerUEExtensions } = await import('./ue-extensions.js');
+    registerUEExtensions();
+
+    decorateRTEStylesForUE(main);
+  } else {
+    decorateRTEStyles(main);
+  }
+}
 
 loadDelayedScripts(); // add delayed functionality here

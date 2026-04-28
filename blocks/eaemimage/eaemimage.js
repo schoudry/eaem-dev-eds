@@ -1,2 +1,3 @@
-export default async function decorate(_block) {
+export default async function decorate(block) {
+  if (!block) return;
 }

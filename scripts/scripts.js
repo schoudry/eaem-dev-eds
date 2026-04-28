@@ -109,7 +109,6 @@ function decorateRTEStylesForUE(main) {
   const showStyled = urlParams.get('eaemRTEShowStyled');
   
   if (showStyled === 'true') {
-    console.log('Query param eaemRTEShowStyled=true detected, calling decorateRTEStyles');
     decorateRTEStyles(main);
   }
 }

@@ -32,7 +32,7 @@ async function loadDelayedScripts() {
   loadCSS(`${window.hlx.codeBasePath}/styles/rte-styles.css`);
 
   if (isInUniversalEditor()) {
-    const { registerUEExtensions } = await import('./ue-extensions.js');
+    const { default: registerUEExtensions } = await import('./ue-extensions.js');
     registerUEExtensions();
 
     decorateRTEStylesForUE(main);

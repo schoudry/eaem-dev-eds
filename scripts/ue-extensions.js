@@ -1,4 +1,4 @@
-export function registerUEExtensions() {
+export default function registerUEExtensions() {
   const SELECTION_MESSAGE_TYPE = 'eds-user-text-selection';
   let selectionDebounce;
 

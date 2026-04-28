@@ -36,8 +36,8 @@ export function registerUEExtensions() {
 
       try {
         win.postMessage(payload, targetOrigin);
-      } catch (err) {
-        console.warn("postMessage to iframe failed", err);
+      } catch {
+        // postMessage can fail for cross-origin or detached frames; ignore
       }
     });
   };

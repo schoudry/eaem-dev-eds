@@ -120,12 +120,6 @@ function decorateRTEStylesForUE(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  if(isInUniversalEditor()){
-    decorateRTEStylesForUE(main);
-  }else{
-    decorateRTEStyles(main);
-  }
-
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);

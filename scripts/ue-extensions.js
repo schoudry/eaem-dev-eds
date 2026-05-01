@@ -1,4 +1,28 @@
+let domParserParseFromStringPatched = false;
+
+/**
+ * Wraps DOMParser.parseFromString for debugging: logs each call, then invokes the native implementation.
+ */
+function extendDOMParserParseFromString() {
+  if (domParserParseFromStringPatched) {
+    return;
+  }
+  domParserParseFromStringPatched = true;
+
+  const original = DOMParser.prototype.parseFromString;
+
+  DOMParser.prototype.parseFromString = function parseFromStringExtended(string, mimeType) {
+    console.log('[ue-extensions] DOMParser.parseFromString', {
+      mimeType,
+      length: string?.length ?? 0,
+    });
+    return original.call(this, string, mimeType);
+  };
+}
+
 export default function registerUEExtensions() {
+  extendDOMParserParseFromString();
+
   const SELECTION_MESSAGE_TYPE = 'eds-user-text-selection';
   let selectionDebounce;
 

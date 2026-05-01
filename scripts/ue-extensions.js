@@ -44,6 +44,14 @@ export default function registerUEExtensions() {
     });
   };
 
+  document.addEventListener(
+    'focusin',
+    (event) => {
+      console.log('[ue-extensions] focusin', event.target);
+    },
+    true,
+  );
+
   document.addEventListener('selectionchange', () => {
     clearTimeout(selectionDebounce);
     selectionDebounce = setTimeout(() => {

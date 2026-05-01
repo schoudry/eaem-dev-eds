@@ -1,8 +1,5 @@
 let domParserParseFromStringPatched = false;
 
-/**
- * Wraps DOMParser.parseFromString for debugging: logs each call, then invokes the native implementation.
- */
 function extendDOMParserParseFromString() {
   if (domParserParseFromStringPatched) {
     return;

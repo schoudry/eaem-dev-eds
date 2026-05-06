@@ -23,6 +23,12 @@
     ]
   },
   {
+    "id": "cards-grid",
+    "components": [
+      "grid-card"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"

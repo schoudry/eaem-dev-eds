@@ -7,7 +7,6 @@ import {
   decorateBlocks,
   decorateTemplateAndTheme,
   waitForFirstImage,
-  createOptimizedPicture,
   loadSection,
   loadSections,
   loadCSS,
@@ -72,19 +71,6 @@ function buildAutoBlocks() {
   }
 }
 
-function getUrlExtension(url) {
-  return url.split(/[#?]/)[0].split('.').pop().trim();
-}
-
-function appendQueryParams(url, params) {
-  const { searchParams } = url;
-  params.forEach((value, key) => {
-    searchParams.set(key, value);
-  });
-  url.search = searchParams.toString();
-  return url.toString();
-}
-
 function isInUniversalEditor() {
   return window.self !== window.top;
 }
@@ -92,9 +78,9 @@ function isInUniversalEditor() {
 function decorateRTEStyles(main) {
   // Pattern: //[classname] TEXT TO BE STYLED //
   const pattern = /\/\/\[([^\]]+)\]\s*(.*?)\s*\/\//g;
-  
+
   const paragraphs = main.querySelectorAll('p');
-  
+
   paragraphs.forEach((p) => {
     if (pattern.test(p.textContent)) {
       p.innerHTML = p.innerHTML.replace(pattern, '<span class="$1">$2</span>');
@@ -107,7 +93,7 @@ function decorateRTEStylesForUE(main) {
   // Check for query parameter
   const urlParams = new URLSearchParams(window.location.search);
   const showStyled = urlParams.get('eaemRTEShowStyled');
-  
+
   if (showStyled === 'true') {
     // eslint-disable-next-line no-console
     console.log('Query param eaemRTEShowStyled=true detected, calling decorateRTEStyles');
@@ -121,9 +107,9 @@ function decorateRTEStylesForUE(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  if(isInUniversalEditor()){
+  if (isInUniversalEditor()) {
     decorateRTEStylesForUE(main);
-  }else{
+  } else {
     decorateRTEStyles(main);
   }
 

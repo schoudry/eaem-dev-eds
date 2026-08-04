@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "abbv-iconFont";
+  font-family: abbv-iconFont;
   src: url("https://www.skyrizihcp.com/etc/clientlibs/common-elements/clientlibs/framework/ui/fonts/abbv_iconFont.woff")
     format("woff");
   font-weight: normal;
@@ -27,10 +27,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 4px;
-  margin-right: auto;
-  margin-bottom: 0;
-  margin-left: auto;
+  margin: 4px auto 0;
   background: #d1f1fc;
 }
 

@@ -246,6 +246,18 @@
     ]
   },
   {
+    "id": "eaem-html-container",
+    "fields": [
+      {
+        "component": "text",
+        "name": "containerName",
+        "label": "Container Name",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "euetext",
     "fields": [
       {

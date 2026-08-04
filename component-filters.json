@@ -17,7 +17,9 @@
       "columns",
       "fragment",
       "uetext",
-      "cards-grid"
+      "eaemimage",
+      "eaem-dynamic-select",
+      "eaem-rte-dm-open-api"
     ]
   },
   {

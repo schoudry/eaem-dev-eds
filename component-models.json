@@ -179,28 +179,28 @@
       },
       {
         "component": "text",
-        "name": "line1",
+        "name": "line_1",
         "label": "Line 1 (brand / VS)",
         "value": "",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "line2",
+        "name": "line_2",
         "label": "Line 2",
         "value": "",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "line3",
+        "name": "line_3",
         "label": "Line 3",
         "value": "",
         "valueType": "string"
       },
       {
         "component": "text",
-        "name": "line4",
+        "name": "line_4",
         "label": "Line 4",
         "value": "",
         "valueType": "string"

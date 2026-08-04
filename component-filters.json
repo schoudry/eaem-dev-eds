@@ -16,10 +16,8 @@
       "cards",
       "columns",
       "fragment",
-      "uetext",
-      "eaemimage",
-      "eaem-dynamic-select",
-      "eaem-rte-dm-open-api"
+      "euetext",
+      "eaem-html-container"
     ]
   },
   {

@@ -109,6 +109,7 @@ function decorateRTEStylesForUE(main) {
   const showStyled = urlParams.get('eaemRTEShowStyled');
   
   if (showStyled === 'true') {
+    // eslint-disable-next-line no-console
     console.log('Query param eaemRTEShowStyled=true detected, calling decorateRTEStyles');
     decorateRTEStyles(main);
   }

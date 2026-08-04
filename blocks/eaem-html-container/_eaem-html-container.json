@@ -26,6 +26,13 @@
           "label": "Container Name",
           "value": "",
           "valueType": "string"
+        },
+        {
+          "component": "eaem:html-container",
+          "name": "containerHtml",
+          "label": "Container HTML",
+          "value": "",
+          "valueType": "string"
         }
       ]
     }

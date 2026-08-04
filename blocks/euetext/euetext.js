@@ -4,6 +4,8 @@ export default async function decorate(block) {
     }
     
     const links = block.querySelectorAll('a');
+
+    //try links
     
     links.forEach(link => {
         const href = link.getAttribute('href');

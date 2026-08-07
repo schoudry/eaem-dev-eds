@@ -11,6 +11,22 @@ function decodeBase64(value) {
   }
 }
 
+/**
+ * <script> elements inserted via innerHTML are inert by spec.
+ * Replace each one with a freshly created <script> (same attributes/content)
+ * so the browser actually executes it once it's back in the DOM.
+ */
+function executeInjectedScripts(container) {
+  container.querySelectorAll('script').forEach((oldScript) => {
+    const newScript = document.createElement('script');
+    [...oldScript.attributes].forEach((attr) => {
+      newScript.setAttribute(attr.name, attr.value);
+    });
+    newScript.textContent = oldScript.textContent;
+    oldScript.replaceWith(newScript);
+  });
+}
+
 export default function decorate(block) {
   const [nameRow, htmlRow] = [...block.children];
 
@@ -23,4 +39,5 @@ export default function decorate(block) {
   const decodedHtml = decodeBase64(encodedHtml);
 
   block.innerHTML = decodedHtml;
+  executeInjectedScripts(block);
 }
